@@ -1,0 +1,33 @@
+{
+  "name": "node-elasticbean",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.ts",
+  "engines": {
+    "node": "v14.20.1"
+  },
+  "scripts": {
+    "tsc": "tsc",
+    "start": "node index.js",
+    "clean": "rm -rf dist/",
+    "prod": "node dist/index.js",
+    "dev": "nodemon src/index.ts",
+    "zip": "cd dist && zip -r Archive.zip .",
+    "build": "npm run clean && npm run tsc",
+    "postbuild": "cp package.json dist/package.json && cp .npmrc dist/.npmrc && cp -r .elasticbeanstalk dist/.elasticbeanstalk && npm run zip"
+  },
+  "author": "Ahmed I. Abu Qahf",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.14",
+    "@types/node": "^18.11.9",
+    "nodemon": "^2.0.20",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.4"
+  }
+}
